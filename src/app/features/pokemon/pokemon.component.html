@@ -1,0 +1,7 @@
+<div class="pokemon-container">
+    <div class="pokemon-data-container">
+        <div class="pokemon-data">
+            <mat-card *ngFor="let pokemon of (pokemon$ | async)" class="pokemon-card clickable" >{{pokemon.name}}</mat-card>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,25 @@
 <div class="app-container">
-  <div class="container-fluid">
-    App works !
-    <router-outlet></router-outlet>
+  <div class="app-container">
+    <div class="app-header">
+      <div class="app-title">
+        <svg width="90" height="90">
+          <image
+            xlink:href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg"
+            width="90" height="90" />
+        </svg>
+        <div class="app-header-title">Pokédex</div>
+        <svg width="90" height="90">
+          <image
+            xlink:href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+            width="90" height="90" />
+        </svg>
+      </div>
+      <div class="app-subtitle">
+        You can use this Pokedex to collect data about Pokemon !
+      </div>
+      
+    </div>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
