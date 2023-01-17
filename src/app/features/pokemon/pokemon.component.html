@@ -1,7 +1,12 @@
 <div class="pokemon-container">
     <div class="pokemon-data-container">
-        <div class="pokemon-data">
-            <mat-card *ngFor="let pokemon of (pokemon$ | async)" class="pokemon-card clickable" >{{pokemon.name}}</mat-card>
-        </div>
+            <cdk-virtual-scroll-viewport itemSize="50" class="pokemon-data">
+                    <mat-card *cdkVirtualFor="let pokemon of (pokemon$ | async)" class="pokemon-card clickable">
+                        <div style="margin-right: 20px;">{{pokemon.name | titlecase}}</div>
+                            <img
+                              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.index + '.png'" (error)="handleMissingImage($event)"
+                              width="90" height="90">
+                    </mat-card>
+            </cdk-virtual-scroll-viewport>
     </div>
 </div>

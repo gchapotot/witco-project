@@ -9,13 +9,16 @@
         width: 900px;
 
         .pokemon-data {
+            height: calc(100vh - 250px);;
             padding-left: calc(96px + env(safe-area-inset-left));
             padding-right: calc(96px + env(safe-area-inset-right));
 
             .pokemon-card {
                 margin-bottom: 10px;
                 font-weight: 700;
-                text-transform: capitalize;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
 
