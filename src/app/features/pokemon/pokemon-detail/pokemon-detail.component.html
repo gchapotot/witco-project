@@ -1,0 +1,50 @@
+<div class="pokemon-detail-container" *ngIf="(pokemon$ | async); else loadingTemplate">
+    <div mat-dialog-title>
+        <div class="pokemon-detail-header">
+            <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon!.id + '.png'"
+                (error)="handleMissingImage($event)" width="120" height="120">
+            <div class="pokemon-detail-header-title">
+                <div>Pokémon Details</div>
+                <div class="pokemon-detail-name">{{pokemon!.name | titlecase}}</div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-content>
+        <div class="pokemon-detail-body">
+            <div class="pokemon-detail-container">
+                <div class="line-row">
+                    <div class="pokemon-detail-element">
+                        <div class="element-title">Type(s): </div><span>{{displayPokemonTypes()}}</span>
+                    </div>
+                    <div class="pokemon-detail-element">
+                        <div class="element-title">Abilities: </div><span>{{displayPokemonAbilities()}}</span>
+                    </div>
+                </div>
+                <div class="line-row" style="margin-top: 10px;">
+                    <div class="pokemon-detail-element">
+                        <div class="element-title">Height: </div><span>{{pokemon!.height}} dm</span>
+                    </div>
+                    <div class="pokemon-detail-element">
+                        <div class="element-title">Weight: </div><span>{{pokemon!.weight}} hg</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <!-- Radar chart with Highcharts -->
+                <highcharts-chart [Highcharts]="radarChartHighcharts" [options]="radarChartOptions!"
+                    style="width:100%; height:400px;"></highcharts-chart>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions style="justify-content: flex-end;">
+        <button mat-stroked-button color="primary" (click)="onCloseFolder()"
+            class="pokemon-detail-close-button">Close</button>
+    </div>
+</div>
+
+<!-- Loading Spinner Template -->
+<ng-template #loadingTemplate>
+    <div style="text-align: center; align-items: center;">
+        <mat-spinner [diameter]="50" style=" display: inline-flex;"></mat-spinner>
+    </div>
+</ng-template>

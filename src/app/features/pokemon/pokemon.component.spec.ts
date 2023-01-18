@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StoreModule } from '@ngrx/store';
 
 import { PokemonComponent } from './pokemon.component';
 
@@ -8,9 +10,10 @@ describe('PokemonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokemonComponent ]
+      declarations: [PokemonComponent],
+      imports: [StoreModule.forRoot({}), MatDialogModule],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PokemonComponent);
     component = fixture.componentInstance;

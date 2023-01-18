@@ -17,6 +17,15 @@ export class pokemonEffect {
         })
     ));
 
+    getPokemonDetail$: Observable<Action> = createEffect(() => this.actions$.pipe(
+        ofType(pokemonActions.getPokemonDetail),
+        switchMap((actions) => {
+            return this.pokemonService.getPokemonDetail(actions.name).pipe(
+                map(data => pokemonActions.getPokemonDetailSuccess({ pokemonDetail: data }))
+            )
+        })
+    ));
+
 
     constructor(private actions$: Actions, private pokemonService: PokemonService) { }
 }

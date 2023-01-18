@@ -9,7 +9,7 @@
         width: 900px;
 
         .pokemon-data {
-            height: calc(100vh - 250px);;
+            height: calc(100vh - 250px);
             padding-left: calc(96px + env(safe-area-inset-left));
             padding-right: calc(96px + env(safe-area-inset-right));
 
@@ -21,7 +21,5 @@
                 align-items: center;
             }
         }
-
     }
-
 }
